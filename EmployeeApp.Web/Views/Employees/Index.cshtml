@@ -4,17 +4,20 @@
     <html>
     <head>
         <title>Employees</title>
+    <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
     </head>
     <body>
-        <h1>Employees</h1>
-        <ul>
-            @foreach (var employee in Model)
-            {
-                <li>
-                    <h3>@employee.Name</h3>
-                </li>
-            }
-        </ul>
-        <a asp-action="Create">Add new employee</a>
+        <div style="margin: 2rem;">
+            <h1>Employees</h1>
+            <ul>
+                @foreach (var employee in Model)
+                {
+                    <li>
+                        <a asp-route-id="@employee.Id" asp-action="details" asp-controller="Employees"><h3>@employee.Name</h3></a>
+                    </li>
+                }
+            </ul>
+            <a asp-action="Create">Add new employee</a>
+        </div>
     </body>
     </html>
